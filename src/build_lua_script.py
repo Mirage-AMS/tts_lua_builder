@@ -144,6 +144,8 @@ class LuaBuilder:
         """
         # Initialize the content of the output file
         content = ""
+        if self.verbose:
+            content += "require(\"vscode/console\")\n"
         sorted_modules = self.sorted_modules
 
         # Iterate through the sorted modules and add the corresponding Lua file content
