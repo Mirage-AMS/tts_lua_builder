@@ -69,7 +69,7 @@ def topological_sort(graph):
 
 
 class LuaBuilder:
-    def __init__(self, root: str, output: str, verbose=False, mock=False):
+    def __init__(self, root: str, output: str, verbose=False, mock=False, debug=False):
         """
         Organize Lua files based on dependencies in a Lua project
         :param root: Directory of the Lua project
@@ -81,6 +81,7 @@ class LuaBuilder:
         self.output_file = Path(output)
         self.verbose = verbose
         self.mock = mock
+        self.debug = debug
 
         self.sorted_modules = []
 
@@ -144,7 +145,7 @@ class LuaBuilder:
         """
         # Initialize the content of the output file
         content = ""
-        if self.verbose:
+        if self.debug:
             content += "require(\"vscode/console\")\n"
         sorted_modules = self.sorted_modules
 

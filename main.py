@@ -28,12 +28,13 @@ def main():
     arg_parser.add_argument("--output_file", "-o", type=str, required=True, help="target output file for the merged Lua script")
     arg_parser.add_argument("--verbose", "-v", action="store_true", help="enable verbose output for detailed information")
     arg_parser.add_argument("--mock", "-m", action="store_true", help="use mock data for compilation")
+    arg_parser.add_argument("--debug", "-d", action="store_true", help="enable vscode plugin's console")
 
     # 解析命令行参数
     args = arg_parser.parse_args()
 
     # 调用build_lua_script函数
-    LuaBuilder(args.input_dir, args.output_file, args.verbose, args.mock).run()
+    LuaBuilder(args.input_dir, args.output_file, args.verbose, args.mock, args.debug).run()
 
 
 if __name__ == "__main__":
